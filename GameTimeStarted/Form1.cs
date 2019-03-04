@@ -12,7 +12,7 @@ namespace GameTimeStarted
 {
     public partial class GameForm : Form
     {
-
+        public int score = 0;
         public GameForm()
         {
             InitializeComponent();
@@ -22,11 +22,14 @@ namespace GameTimeStarted
 
         public void OnStart()
         {
+
             Form f = FindForm();
             f.Controls.Add(new MenuScreen());
+            f.Controls.Remove(this);
 
         }
-        
-       
+        public void ScoreReset()
+        { score = 0;}
+    
     }
 }

@@ -8,9 +8,9 @@ namespace GameTimeStarted
 {
     class Sprite
     {
-        public int x, y, size;
+        public int x, y;
         int sizeX, sizeY;
-        int speed = 5;
+        int speed = 4;
         public Rectangle rect; 
         public Sprite(int _x,int _y, int _size)
         {
@@ -19,7 +19,6 @@ namespace GameTimeStarted
             sizeX = _size;
             sizeY = _size;
             rect= new Rectangle(x, y, sizeX, sizeY);
-
         }
         public Sprite(int _x, int _y, int _sizeX, int _sizeY)
         {
@@ -30,23 +29,19 @@ namespace GameTimeStarted
             rect = new Rectangle(x, y, sizeX, sizeY);
 
         }
-        public void Jump(int jHeight, bool jump)
+        public void Jump(int jHeight)
         {
-            if (jump == true)
-            {
-                y += 2 * jHeight;
-            }
-           
+          rect.Y -= 2 * jHeight;
+  
         }
-        public void slide(int posX)
+        public void slide()
         {
-            x = x - speed;
+            rect.X -= speed;
         }
+    
         public Boolean collision(Sprite mobster)
         {
-           Rectangle mobRect = new Rectangle(mobster.x, mobster.y, mobster.sizeX, mobster.sizeY);
-           return rect.IntersectsWith(mobRect);
-            
+            return mobster.rect.IntersectsWith(rect);
         }
 
     }

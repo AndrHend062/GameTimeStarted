@@ -34,6 +34,8 @@
             // 
             // gameTime
             // 
+            this.gameTime.Enabled = true;
+            this.gameTime.Interval = 16;
             this.gameTime.Tick += new System.EventHandler(this.gameTime_Tick);
             // 
             // GameScreen
@@ -41,8 +43,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(462, 365);
+            this.Size = new System.Drawing.Size(646, 539);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.ResumeLayout(false);
 
         }

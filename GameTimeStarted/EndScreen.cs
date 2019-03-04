@@ -10,20 +10,25 @@ using System.Windows.Forms;
 
 namespace GameTimeStarted
 {
-    public partial class MenuScreen : UserControl
+    public partial class EndScreen : UserControl
     {
-        public MenuScreen()
+        Form f;
+        GameForm gForm;
+
+        public EndScreen()
         {
             InitializeComponent();
+            f = FindForm();
+            gForm = f as GameForm;
         }
 
-        private void startButton_Click(object sender, EventArgs e)
-        {   
-            Form f = FindForm();
-            f.Controls.Add(new GameScreen());
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            
+            f.Controls.Add(new MenuScreen());
             f.Controls.Remove(this);
-           // GameForm gForm = f as GameForm;
-           // gForm.ScoreReset();
+           
+
         }
     }
 }
