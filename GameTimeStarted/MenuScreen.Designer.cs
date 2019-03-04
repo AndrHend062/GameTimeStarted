@@ -36,7 +36,7 @@
             // 
             this.startButton.Location = new System.Drawing.Point(177, 259);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(75, 23);
+            this.startButton.Size = new System.Drawing.Size(108, 54);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -45,20 +45,22 @@
             // titleLabel
             // 
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.titleLabel.Location = new System.Drawing.Point(3, 41);
+            this.titleLabel.Location = new System.Drawing.Point(42, 48);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(395, 68);
             this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Jump";
+            this.titleLabel.Text = "Jump Time";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.startButton);
             this.Name = "MenuScreen";
-            this.Size = new System.Drawing.Size(474, 369);
+            this.Size = new System.Drawing.Size(600, 600);
             this.ResumeLayout(false);
 
         }

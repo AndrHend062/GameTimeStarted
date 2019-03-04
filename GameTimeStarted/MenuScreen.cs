@@ -15,6 +15,7 @@ namespace GameTimeStarted
         public MenuScreen()
         {
             InitializeComponent();
+            
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -22,8 +23,7 @@ namespace GameTimeStarted
             Form f = FindForm();
             f.Controls.Add(new GameScreen());
             f.Controls.Remove(this);
-           // GameForm gForm = f as GameForm;
-           // gForm.ScoreReset();
+           
         }
     }
 }

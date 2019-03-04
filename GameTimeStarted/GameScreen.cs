@@ -16,29 +16,28 @@ namespace GameTimeStarted
         Sprite Jumper;
         Sprite Floor;
         int jumperX = 25;
-        int jumperY= 90;
+        int jumperY= 140;
         int jumpH = 9;
         bool spaceDown;
         List<Sprite> mobs = new List<Sprite>();
-        SolidBrush jumpBrush = new SolidBrush(Color.Aqua);
+        static SolidBrush jumpBrush = new SolidBrush(Color.Black);
         SolidBrush mobBrush = new SolidBrush(Color.Red);
         SolidBrush floorBrush = new SolidBrush(Color.Green);
-        Form f;
-        GameForm gForm;
+        Pen drawPen = new Pen(Color.Black);
+        Font drawFont = new Font("Mongolian Baiti", 16);
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
             gameTime.Start();
             DoubleBuffered = true;
-            f = FindForm();
-            gForm = f as GameForm;
+           
         }
         public void OnStart() 
         {
             Jumper = new Sprite(jumperX,jumperY,20);
-            Floor = new Sprite(0,110, Width, Height- 110);
-            mobs.Add(new Sprite(Width, 90, 20));
+            Floor = new Sprite(0,jumperY+20, Width, Height- 110);
+            mobs.Add(new Sprite(Width, jumperY, 20));
 
         }
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
@@ -56,16 +55,16 @@ namespace GameTimeStarted
             int spawnTicks = 48;
             spawn++;
 
-           // gForm.score++;
+            GameForm.score++;
 
             if (spawn % spawnTicks == 0)
             {
-                mobs.Add(new Sprite(Width, 90, 20));
+                mobs.Add(new Sprite(Width, jumperY, 20));
             }
            if (mobs[0].collision(Jumper))
              {
                 gameTime.Stop();
-                
+                Form f = FindForm();
                 f.Controls.Add(new EndScreen());
                 f.Controls.Remove(this);
             }
@@ -73,22 +72,24 @@ namespace GameTimeStarted
             {
                 Jumper.Jump(jumpH);
                 jumpH--;
-                if (jumpH < -8)
+                if (jumpH < -9)
                 {
-                    jumpH = 8;
+                    jumpH = 9;
                     spaceDown = false;
                 }
             }
-            foreach (Sprite m in mobs)
+            try
             {
-                m.slide();
-                if (m.x < 50)
+                foreach (Sprite m in mobs)
                 {
-                    mobs.Remove(m);
-                  
+                    m.slide();
+                    if (m.rect.X < 0)
+                    {
+                        mobs.Remove(m);
+                    }
                 }
             }
-
+            catch { }
             Refresh();
         }
 
@@ -102,8 +103,7 @@ namespace GameTimeStarted
 
             e.Graphics.FillRectangle(floorBrush, Floor.rect);
             e.Graphics.FillRectangle(jumpBrush, Jumper.rect);
+            e.Graphics.DrawString(GameForm.score+"",drawFont ,jumpBrush,Width-100,50);
         }
-
-       
     }
 }
