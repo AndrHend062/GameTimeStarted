@@ -19,12 +19,15 @@ namespace GameTimeStarted
         int jumperY= 140;
         int jumpH = 9;
         bool spaceDown;
+        
         List<Sprite> mobs = new List<Sprite>();
         static SolidBrush jumpBrush = new SolidBrush(Color.Black);
         SolidBrush mobBrush = new SolidBrush(Color.Red);
         SolidBrush floorBrush = new SolidBrush(Color.Green);
         Pen drawPen = new Pen(Color.Black);
         Font drawFont = new Font("Mongolian Baiti", 16);
+        Random rand = new Random();
+        int spawnTicks = 48;
         public GameScreen()
         {
             InitializeComponent();
@@ -50,25 +53,27 @@ namespace GameTimeStarted
             }
         }
         
-        private void gameTime_Tick(object sender, EventArgs e)
+        private void gameTime_Tick(object sender, EventArgs e) // 60 fps game tick 
         {
-            int spawnTicks = 48;
+
             spawn++;
 
             GameForm.score++;
 
-            if (spawn % spawnTicks == 0)
+            if (spawn % spawnTicks == 0) //spawn new monsters 
             {
                 mobs.Add(new Sprite(Width, jumperY, 20));
             }
-           if (mobs[0].collision(Jumper))
-             {
-                gameTime.Stop();
-                Form f = FindForm();
-                f.Controls.Add(new EndScreen());
-                f.Controls.Remove(this);
+           
+            if (mobs[0].collision(Jumper))// check collision with monsters
+            {
+               gameTime.Stop();
+               Form f = FindForm();
+               f.Controls.Add(new EndScreen());
+               f.Controls.Remove(this);
             }
-            if (spaceDown)
+            
+            if (spaceDown) // if space pressed jump player 
             {
                 Jumper.Jump(jumpH);
                 jumpH--;
@@ -80,12 +85,14 @@ namespace GameTimeStarted
             }
             try
             {
-                foreach (Sprite m in mobs)
+                foreach (Sprite m in mobs) // move monster and delete if off screen
                 {
                     m.slide();
+                   
                     if (m.rect.X < 0)
                     {
                         mobs.Remove(m);
+                       // spawnTicks = rand.Next(48, 61);
                     }
                 }
             }
@@ -93,7 +100,7 @@ namespace GameTimeStarted
             Refresh();
         }
 
-        private void GameScreen_Paint(object sender, PaintEventArgs e)
+        private void GameScreen_Paint(object sender, PaintEventArgs e) // paint the objects 
         {
 
             foreach(Sprite m in mobs)
@@ -102,7 +109,7 @@ namespace GameTimeStarted
             }
 
             e.Graphics.FillRectangle(floorBrush, Floor.rect);
-            e.Graphics.FillRectangle(jumpBrush, Jumper.rect);
+            e.Graphics.DrawImage(Properties.Resources.Rex.png, Jumper.rect);
             e.Graphics.DrawString(GameForm.score+"",drawFont ,jumpBrush,Width-100,50);
         }
     }
