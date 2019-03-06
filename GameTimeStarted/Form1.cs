@@ -23,13 +23,22 @@ namespace GameTimeStarted
         public void OnStart()
         {
 
-            Form f = FindForm();
-            f.Controls.Add(new MenuScreen());
+            
            
 
         }
         public void ScoreReset()
         { score = 0;}
-    
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            MenuScreen f = new MenuScreen();
+            this.Controls.Add(f);
+            f.Location = new Point((this.Width-f.Width) / 2  , 0);
+            Cursor.Hide();
+        }
     }
 }

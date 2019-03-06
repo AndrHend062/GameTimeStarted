@@ -21,9 +21,16 @@ namespace GameTimeStarted
         private void startButton_Click(object sender, EventArgs e)
         {   
             Form f = FindForm();
-            f.Controls.Add(new GameScreen());
+            GameScreen gS = new GameScreen();
+            f.Controls.Add(gS);
+           // gS.Location = (MenuScreen.width, 0);
             f.Controls.Remove(this);
            
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

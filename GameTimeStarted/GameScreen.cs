@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameTimeStarted.Properties;
 
 namespace GameTimeStarted
 {
@@ -20,6 +21,7 @@ namespace GameTimeStarted
         int jumpH = 9;
         bool spaceDown;
         Image REX;
+       
         List<Sprite> mobs = new List<Sprite>();
         static SolidBrush jumpBrush = new SolidBrush(Color.Black);
         SolidBrush mobBrush = new SolidBrush(Color.Red);
@@ -41,7 +43,7 @@ namespace GameTimeStarted
             Jumper = new Sprite(jumperX,jumperY,20);
             Floor = new Sprite(0,jumperY+20, Width, Height- 110);
             mobs.Add(new Sprite(Width, jumperY, 20));
-
+            REX = Resources.rex;
         }
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
@@ -102,12 +104,13 @@ namespace GameTimeStarted
 
         private void GameScreen_Paint(object sender, PaintEventArgs e) // paint the objects 
         {
-
+           
             foreach(Sprite m in mobs)
             {
                 e.Graphics.FillRectangle(mobBrush, m.rect);
             }
-            REX = Properties.Resources.rex.png;
+
+            
             e.Graphics.FillRectangle(floorBrush, Floor.rect);
             e.Graphics.DrawImage(REX, Jumper.rect);
             e.Graphics.DrawString(GameForm.score+"",drawFont ,jumpBrush,Width-100,50);
