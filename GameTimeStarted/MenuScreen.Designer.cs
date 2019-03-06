@@ -34,7 +34,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(177, 259);
+            this.startButton.Location = new System.Drawing.Point(192, 264);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(108, 54);
             this.startButton.TabIndex = 0;
@@ -44,8 +44,9 @@
             // 
             // titleLabel
             // 
+            this.titleLabel.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.titleLabel.Location = new System.Drawing.Point(42, 48);
+            this.titleLabel.Location = new System.Drawing.Point(63, 50);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(395, 68);
             this.titleLabel.TabIndex = 1;

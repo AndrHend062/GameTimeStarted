@@ -19,7 +19,7 @@ namespace GameTimeStarted
         int jumperY= 140;
         int jumpH = 9;
         bool spaceDown;
-        
+        Image REX;
         List<Sprite> mobs = new List<Sprite>();
         static SolidBrush jumpBrush = new SolidBrush(Color.Black);
         SolidBrush mobBrush = new SolidBrush(Color.Red);
@@ -107,9 +107,9 @@ namespace GameTimeStarted
             {
                 e.Graphics.FillRectangle(mobBrush, m.rect);
             }
-
+            REX = Properties.Resources.rex.png;
             e.Graphics.FillRectangle(floorBrush, Floor.rect);
-            e.Graphics.DrawImage(Properties.Resources.Rex.png, Jumper.rect);
+            e.Graphics.DrawImage(REX, Jumper.rect);
             e.Graphics.DrawString(GameForm.score+"",drawFont ,jumpBrush,Width-100,50);
         }
     }
