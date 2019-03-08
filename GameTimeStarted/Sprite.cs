@@ -10,7 +10,7 @@ namespace GameTimeStarted
     {
         public int x, y;
         int sizeX, sizeY;
-        int speed = 4;
+        int speed = 5;
         public Rectangle rect; 
         public Sprite(int _x,int _y, int _size)
         {
@@ -37,11 +37,13 @@ namespace GameTimeStarted
         public void slide()
         {
             rect.X -= speed;
+           
         }
     
         public Boolean collision(Sprite mobster)
         {
             return mobster.rect.IntersectsWith(rect);
+
         }
 
     }

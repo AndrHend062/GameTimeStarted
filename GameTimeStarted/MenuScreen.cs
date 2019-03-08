@@ -23,7 +23,7 @@ namespace GameTimeStarted
             Form f = FindForm();
             GameScreen gS = new GameScreen();
             f.Controls.Add(gS);
-           // gS.Location = (MenuScreen.width, 0);
+            gS.Location = new Point(Location.X, 0);
             f.Controls.Remove(this);
            
         }
@@ -31,6 +31,15 @@ namespace GameTimeStarted
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            Form f = FindForm();
+            HowScreen gS = new HowScreen();
+            f.Controls.Add(gS);
+            gS.Location = new Point(Location.X, 0);
+            f.Controls.Remove(this);
         }
     }
 }

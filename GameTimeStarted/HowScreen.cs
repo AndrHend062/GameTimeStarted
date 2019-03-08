@@ -10,30 +10,32 @@ using System.Windows.Forms;
 
 namespace GameTimeStarted
 {
-    public partial class EndScreen : UserControl
+    public partial class HowScreen : UserControl
     {
-       
-
-        public EndScreen()
+        SolidBrush drawBrush = new SolidBrush(Color.AntiqueWhite);
+        Rectangle rect;
+        public HowScreen()
         {
             InitializeComponent();
-            
-            scoreLabel.Text = "YOUR SCORE \n" + GameForm.score;
-            GameForm.score = 0;
-            scoreLabel.Location = new Point((Width - scoreLabel.Width) / 2, 300);
-
+            OnStart();
+        }
+        public void OnStart()
+        {
+            rect = new Rectangle(1,50,100,100);
         }
 
-        private void menuButton_Click(object sender, EventArgs e)
+        private void HowScreen_Paint(object sender, PaintEventArgs e)
         {
-          
+            e.Graphics.FillEllipse(drawBrush,rect);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
             Form f = FindForm();
             MenuScreen gS = new MenuScreen();
             f.Controls.Add(gS);
             gS.Location = new Point(Location.X, 0);
             f.Controls.Remove(this);
-
-
         }
     }
 }

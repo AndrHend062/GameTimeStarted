@@ -64,6 +64,12 @@
     <Compile Include="GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HowScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowScreen.Designer.cs">
+      <DependentUpon>HowScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowScreen.resx">
+      <DependentUpon>HowScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
@@ -110,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinoDed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boing_x.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

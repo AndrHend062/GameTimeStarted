@@ -31,6 +31,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
@@ -64,11 +65,22 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // helpButton
+            // 
+            this.helpButton.Location = new System.Drawing.Point(494, 397);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(152, 56);
+            this.helpButton.TabIndex = 3;
+            this.helpButton.Text = "Help";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.startButton);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button helpButton;
     }
 }

@@ -61,7 +61,7 @@
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.menuButton);
             this.Name = "EndScreen";
-            this.Size = new System.Drawing.Size(600, 600);
+            this.Size = new System.Drawing.Size(1200, 900);
             this.ResumeLayout(false);
 
         }
