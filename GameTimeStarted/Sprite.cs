@@ -10,12 +10,13 @@ namespace GameTimeStarted
     {
         public int x, y;
         int sizeX, sizeY;
-        int speed = 5;
+       
         public Rectangle rect; 
         public Sprite(int _x,int _y, int _size)
         {
             x = _x;
             y = _y;
+           
             sizeX = _size;
             sizeY = _size;
             rect= new Rectangle(x, y, sizeX, sizeY);
@@ -34,7 +35,7 @@ namespace GameTimeStarted
           rect.Y -= 2 * jHeight;
   
         }
-        public void slide()
+        public void slide(int speed)
         {
             rect.X -= speed;
            

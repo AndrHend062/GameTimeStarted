@@ -20,6 +20,7 @@ namespace GameTimeStarted
         int jumperX = 25;
         int jumperY = 140;
         int jumpH = 9;
+        int speed = 5;
         bool spaceDown;
         bool Haks;
         Image REX;
@@ -81,12 +82,11 @@ namespace GameTimeStarted
             {
                 mobs.Add(new Sprite(Width, jumperY, 20));
             }
-
-            if (spawn % spawnTicks == 0) //spawn new monsters off screen 
+            if (spawn % 200 == 0) //speed up 
             {
-                mobs.Add(new Sprite(Width, -20, 20));
+                speed++;
             }
-
+         
             if (spawn % deadTicks == 0)
             {
                 deads.Add(new Sprite(Width, rand.Next(350, 700), 30));
@@ -117,7 +117,7 @@ namespace GameTimeStarted
 
             foreach (Sprite m in mobs) // move monster and delete if off screen
             {
-                m.slide();
+                m.slide(speed);
 
                 if (m.rect.X < 0)
                 {
@@ -129,7 +129,7 @@ namespace GameTimeStarted
 
             foreach (Sprite d in deads)
             {
-                d.slide();
+                d.slide(speed);
                 if (d.rect.X < 0)
                 {
                     deads.Remove(d);
