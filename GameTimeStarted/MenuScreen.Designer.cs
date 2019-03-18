@@ -60,7 +60,7 @@
             this.closeButton.Location = new System.Drawing.Point(494, 472);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(152, 60);
-            this.closeButton.TabIndex = 2;
+            this.closeButton.TabIndex = 3;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
@@ -70,7 +70,7 @@
             this.helpButton.Location = new System.Drawing.Point(494, 397);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(152, 56);
-            this.helpButton.TabIndex = 3;
+            this.helpButton.TabIndex = 2;
             this.helpButton.Text = "Help";
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);

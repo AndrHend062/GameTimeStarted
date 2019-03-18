@@ -30,6 +30,7 @@
         {
             this.menuButton = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
+            this.GameOverlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // menuButton
@@ -53,16 +54,29 @@
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // GameOverlabel
+            // 
+            this.GameOverlabel.AutoSize = true;
+            this.GameOverlabel.Font = new System.Drawing.Font("Mongolian Baiti", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameOverlabel.Location = new System.Drawing.Point(126, 0);
+            this.GameOverlabel.Name = "GameOverlabel";
+            this.GameOverlabel.Size = new System.Drawing.Size(325, 69);
+            this.GameOverlabel.TabIndex = 2;
+            this.GameOverlabel.Text = "Game Over";
+            this.GameOverlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Controls.Add(this.GameOverlabel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.menuButton);
             this.Name = "EndScreen";
             this.Size = new System.Drawing.Size(1200, 900);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,5 +84,6 @@
 
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label GameOverlabel;
     }
 }

@@ -21,7 +21,7 @@ namespace GameTimeStarted
             scoreLabel.Text = "YOUR SCORE \n" + GameForm.score;
             GameForm.score = 0;
             scoreLabel.Location = new Point((Width - scoreLabel.Width) / 2, 300);
-
+            GameOverlabel.Location = new Point((Width - GameOverlabel.Width) / 2, 50);
         }
 
         private void menuButton_Click(object sender, EventArgs e)
