@@ -13,17 +13,33 @@ namespace GameTimeStarted
 {
     public partial class HighScreen : UserControl
     {
+        XmlReader reader;
         public HighScreen()
         {
             InitializeComponent();
-           
+          //  reader = XmlReader.Create("Resources/HighScore.xml");
         }
         
 
         private void HighScreen_Load(object sender, EventArgs e)
         {
-            XmlReader reader = XmlReader.Create("Resources/HighScore.xml");
-            highScoreLabel.Text = "o no ";
+           
+            //highScoreLabel.Text = "o no ";
+            //while (reader.Read())
+
+            //{
+
+            //    if (reader.NodeType == XmlNodeType.Text)
+
+            //    {
+
+            //        highScoreLabel.Text += reader.Value + "\n";
+
+            //    }
+
+            //}
+
+            //reader.Close();
 
         }
     }

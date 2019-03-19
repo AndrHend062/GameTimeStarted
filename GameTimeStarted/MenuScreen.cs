@@ -41,5 +41,14 @@ namespace GameTimeStarted
             gS.Location = new Point(Location.X, 0);
             f.Controls.Remove(this);
         }
+
+        private void highScoreButton_Click(object sender, EventArgs e)
+        {
+            Form f = FindForm();
+            HighScreen gS = new HighScreen();
+            f.Controls.Add(gS);
+            gS.Location = new Point(Location.X, 0);
+            f.Controls.Remove(this);
+        }
     }
 }

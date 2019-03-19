@@ -32,6 +32,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
+            this.highScoreButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
@@ -75,11 +76,22 @@
             this.helpButton.UseVisualStyleBackColor = true;
             this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
+            // highScoreButton
+            // 
+            this.highScoreButton.Location = new System.Drawing.Point(494, 557);
+            this.highScoreButton.Name = "highScoreButton";
+            this.highScoreButton.Size = new System.Drawing.Size(152, 54);
+            this.highScoreButton.TabIndex = 4;
+            this.highScoreButton.Text = "High Score";
+            this.highScoreButton.UseVisualStyleBackColor = true;
+            this.highScoreButton.Click += new System.EventHandler(this.highScoreButton_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
+            this.Controls.Add(this.highScoreButton);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.titleLabel);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Button highScoreButton;
     }
 }
