@@ -27,34 +27,32 @@ namespace GameTimeStarted
         }
         public void OnStart()
         {
-            XmlDocument doc = new System.Xml.XmlDocument();
-            doc.Load("Resources/HighScore.xml");
-            XmlNodeList scoreList = doc.GetElementsByTagName("score");
-            foreach (XmlNode n in scoreList)
-            {
-                if (n.InnerText == "Chris")
+            //XmlDocument doc = new System.Xml.XmlDocument();
+            //doc.Load("Resources/HighScore.xml");
+            //XmlNodeList scoreList = doc.GetElementsByTagName("score");
+            //foreach (XmlNode n in scoreList)
+            //{
+            //    if (n.InnerText == "Chris")
 
-                {
-                    n.InnerText = "Howard";
-                }
-                else
-                {
-                    n.InnerText = "Chris";
-                }
-            }
-            doc.Save("outputExample.xml");
+            //    {
+            //        n.InnerText = "Howard";
+            //    }
+            //    else
+            //    {
+            //        n.InnerText = "Chris";
+            //    }
+            //}
+            //doc.Save("outputExample.xml");
+            GameForm.scoreList.Add(GameForm.score);
+            GameForm.scoreList.Sort();
+            GameForm.scoreList.Reverse();
+   
 
         }
         private void menuButton_Click(object sender, EventArgs e)
         {
-          
-            Form f = FindForm();
-            MenuScreen gS = new MenuScreen();
-            f.Controls.Add(gS);
-            gS.Location = new Point(Location.X, 0);
-            f.Controls.Remove(this);
-
-
+         
+            GameForm.ChangeScreen(this, "MenuScreen");
         }
     }
 }

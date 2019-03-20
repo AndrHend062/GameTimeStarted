@@ -11,7 +11,7 @@ using System.Xml;
 namespace GameTimeStarted
 {
     public partial class GameForm : Form
-    {   List<int> HighScores = new List<int>();
+    {   public static List<int> scoreList = new List<int>();
         XmlReader reader;
         XmlWriter writer;
         public static int score = 0;
@@ -21,7 +21,6 @@ namespace GameTimeStarted
             try
             {
                 reader = XmlReader.Create("Resources/HighScore.xml");
-                writer = XmlWriter.Create("Resources/HighScore.xml");
             }
             catch { }
 
@@ -33,43 +32,20 @@ namespace GameTimeStarted
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-            //Write the root element 
+            try
+            {
 
-           // writer.WriteStartElement("HighScore");
+                while (reader.Read())
 
-            //Start an element 
-
-            writer.WriteStartElement("playerScore");
-
-
-
-            //Write sub-elements 
-
-            writer.WriteElementString("Score", "1313");
-
-            
-            // end the element 
-
-            writer.WriteEndElement();
-
-            // end the root element 
-
-            writer.WriteEndElement();
-            
-            //Write the XML to file and close the writer 
-
-            writer.Close();
-
-            while (reader.Read())
-
-            { 
-                if (reader.NodeType == XmlNodeType.Text) // read
                 {
-                 HighScores.Add(Convert.ToInt16(reader.Value));
+                    if (reader.NodeType == XmlNodeType.Text) // read
+                    {
+                        scoreList.Add(Convert.ToInt16(reader.Value));
+                    }
+
                 }
-
             }
-
+            catch { }
             reader.Close();
 
             // this.TopMost = true;
@@ -79,6 +55,43 @@ namespace GameTimeStarted
             this.Controls.Add(f);
             f.Location = new Point((this.Width-f.Width) / 2  , 0);
             Cursor.Hide();
+        }
+        public static void ChangeScreen(UserControl current, string next)
+        {
+            //f is set to the form that the current control is on
+            Form f = current.FindForm();
+            f.Controls.Remove(current);
+            UserControl ns = null;
+
+            ///If any screens, (UserControls), are added to the program they need to
+            ///be added within this switch block as well.
+            switch (next)
+            {
+                case "MenuScreen":
+                    ns = new MenuScreen();
+                    break;
+                case "GameScreen":
+                    ns = new GameScreen();
+                    break;
+                case "ScoreScreen":
+                    ns = new HighScreen();
+                    break;
+                case "HowScreen":
+                    ns = new HowScreen();
+                    break;
+                case "HighScreen":
+                    ns = new HighScreen();
+                    break;
+                case "EndScreen":
+                    ns = new EndScreen();
+                    break;
+            }
+
+            //centres the control on the screen
+            ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+
+            f.Controls.Add(ns);
+            ns.Focus();
         }
     }
 }

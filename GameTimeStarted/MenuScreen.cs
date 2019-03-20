@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
 namespace GameTimeStarted
 {
     public partial class MenuScreen : UserControl
     {
+
         public MenuScreen()
         {
             InitializeComponent();
@@ -19,36 +20,47 @@ namespace GameTimeStarted
         }
 
         private void startButton_Click(object sender, EventArgs e)
-        {   
-            Form f = FindForm();
-            GameScreen gS = new GameScreen();
-            f.Controls.Add(gS);
-            gS.Location = new Point(Location.X, 0);
-            f.Controls.Remove(this);
-           
+        {
+            GameForm.ChangeScreen(this, "GameScreen");
+
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e) /// close and save game
         {
+            XmlWriter writer = XmlWriter.Create("Resources/Scores.xml");
+
+            //Write the root element
+            writer.WriteStartElement("PlayerScores");
+
+            foreach (int hs in GameForm.scoreList)
+            {
+ 
+                //Write sub-elements
+                writer.WriteElementString("score", hs+"");
+
+                // end the element
+                writer.WriteEndElement();
+            }
+
+            // end the root element
+            writer.WriteEndElement();
+
+            //Write the XML to file and close the writer
+            writer.Close();
+
+
             Application.Exit();
         }
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            Form f = FindForm();
-            HowScreen gS = new HowScreen();
-            f.Controls.Add(gS);
-            gS.Location = new Point(Location.X, 0);
-            f.Controls.Remove(this);
+            
+            GameForm.ChangeScreen(this, "HowScreen");
         }
 
         private void highScoreButton_Click(object sender, EventArgs e)
         {
-            Form f = FindForm();
-            HighScreen gS = new HighScreen();
-            f.Controls.Add(gS);
-            gS.Location = new Point(Location.X, 0);
-            f.Controls.Remove(this);
+            GameForm.ChangeScreen(this, "HighScreen");
         }
     }
 }
