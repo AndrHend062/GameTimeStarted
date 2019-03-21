@@ -27,7 +27,7 @@ namespace GameTimeStarted
 
         private void closeButton_Click(object sender, EventArgs e) /// close and save game
         {
-            XmlWriter writer = XmlWriter.Create("Resources/Scores.xml");
+            XmlWriter writer = XmlWriter.Create("Resources/HighScore.xml");
 
             //Write the root element
             writer.WriteStartElement("PlayerScores");
@@ -38,13 +38,11 @@ namespace GameTimeStarted
                 //Write sub-elements
                 writer.WriteElementString("score", hs+"");
 
-                // end the element
-                writer.WriteEndElement();
             }
-
-            // end the root element
+            // end the element
             writer.WriteEndElement();
-
+            // end the root element
+            
             //Write the XML to file and close the writer
             writer.Close();
 

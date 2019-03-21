@@ -39,7 +39,8 @@
             this.highScoreLabel.Name = "highScoreLabel";
             this.highScoreLabel.Size = new System.Drawing.Size(317, 335);
             this.highScoreLabel.TabIndex = 0;
-            this.highScoreLabel.Text = "label1";
+            this.highScoreLabel.Text = "High Scores ";
+            this.highScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // menuScreenButton
             // 

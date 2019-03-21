@@ -24,11 +24,9 @@ namespace GameTimeStarted
         private void HighScreen_Load(object sender, EventArgs e)
         {foreach (int hs in GameForm.scoreList)
             {
-                highScoreLabel.Text += hs + "\n";
+                highScoreLabel.Text += "\n"+hs + "\n";
 
             }
-
-
         }
 
         private void menuScreenButton_Click(object sender, EventArgs e)

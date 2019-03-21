@@ -19,7 +19,7 @@ namespace GameTimeStarted
             InitializeComponent();
             
             scoreLabel.Text = "YOUR SCORE \n" + GameForm.score;
-            GameForm.score = 0;
+            
             scoreLabel.Location = new Point((Width - scoreLabel.Width) / 2, 300);
             GameOverlabel.Location = new Point((Width - GameOverlabel.Width) / 2, 50);
 
@@ -27,9 +27,7 @@ namespace GameTimeStarted
         }
         public void OnStart()
         {
-            //XmlDocument doc = new System.Xml.XmlDocument();
-            //doc.Load("Resources/HighScore.xml");
-            //XmlNodeList scoreList = doc.GetElementsByTagName("score");
+           
             //foreach (XmlNode n in scoreList)
             //{
             //    if (n.InnerText == "Chris")
@@ -42,11 +40,22 @@ namespace GameTimeStarted
             //        n.InnerText = "Chris";
             //    }
             //}
-            //doc.Save("outputExample.xml");
+          
             GameForm.scoreList.Add(GameForm.score);
             GameForm.scoreList.Sort();
             GameForm.scoreList.Reverse();
-   
+            GameForm.score = 0;
+            if (GameForm.scoreList.Count > 10)
+            {
+                for(int i=10; i > 15; i++)
+                {
+                    GameForm.scoreList.RemoveAt(i);
+
+                    if (GameForm.scoreList.Count < 11)
+                    {break;}
+                    
+                }
+            }
 
         }
         private void menuButton_Click(object sender, EventArgs e)

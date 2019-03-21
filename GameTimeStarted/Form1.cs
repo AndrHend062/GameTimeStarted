@@ -26,10 +26,7 @@ namespace GameTimeStarted
 
         }
 
-        
-        public void ScoreReset()
-        { score = 0;}
-
+ 
         private void GameForm_Load(object sender, EventArgs e)
         {
             try
@@ -51,9 +48,11 @@ namespace GameTimeStarted
             // this.TopMost = true;
             //this.FormBorderStyle = FormBorderStyle.None;
             // this.WindowState = FormWindowState.Maximized;
-            MenuScreen f = new MenuScreen();
-            this.Controls.Add(f);
-            f.Location = new Point((this.Width-f.Width) / 2  , 0);
+            Form f = FindForm();
+            MenuScreen ns =new MenuScreen();
+            ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+            f.Controls.Add(ns);
+            ns.Focus();
             Cursor.Hide();
         }
         public static void ChangeScreen(UserControl current, string next)
