@@ -20,7 +20,7 @@ namespace GameTimeStarted
             InitializeComponent();
             try
             {
-                reader = XmlReader.Create("Resources/HighScore.xml");
+                reader = XmlReader.Create("HighScore.xml"); // make reader 
             }
             catch { }
 
@@ -41,9 +41,10 @@ namespace GameTimeStarted
                     }
 
                 }
+                reader.Close();
             }
             catch { }
-            reader.Close();
+            
 
             // this.TopMost = true;
             //this.FormBorderStyle = FormBorderStyle.None;

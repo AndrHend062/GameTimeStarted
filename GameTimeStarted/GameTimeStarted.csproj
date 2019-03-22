@@ -135,5 +135,8 @@
   <ItemGroup>
     <None Include="Resources\boing_x.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\HighScore.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

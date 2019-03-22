@@ -41,21 +41,21 @@ namespace GameTimeStarted
             InitializeComponent();
             OnStart();
             gameTime.Start();
-            DoubleBuffered = true;
-            SPlayer = new SoundPlayer(Resources.boing);
+            DoubleBuffered = true; // make it look nicer 
+            SPlayer = new SoundPlayer(Resources.boing); 
         }
         public void OnStart()
         {
             Jumper = new Sprite(jumperX, jumperY, 20);
-            Floor = new Sprite(0, jumperY + 20, Width, Height - 110);
+            Floor = new Sprite(0, jumperY + 20, Width, Height - 110); // place all the objects 
             DirtFloor = new Sprite(0, jumperY + 180, Width, Height - 270);
             mobs.Add(new Sprite(Width, jumperY, 20));
             REX = Resources.rex;
-            DINODEAD = Resources.dinoDed;
+            DINODEAD = Resources.dinoDed; // create images 
             Haks = false;
 
         }
-        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
+        private void GameScreen_KeyDown(object sender, KeyEventArgs e) // key presses 
         {
             switch (e.KeyCode)
             {

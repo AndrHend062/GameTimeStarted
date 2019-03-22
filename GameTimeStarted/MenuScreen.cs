@@ -27,10 +27,10 @@ namespace GameTimeStarted
 
         private void closeButton_Click(object sender, EventArgs e) /// close and save game
         {
-            XmlWriter writer = XmlWriter.Create("Resources/HighScore.xml");
+            XmlWriter writer = XmlWriter.Create("HighScore.xml");
 
             //Write the root element
-            writer.WriteStartElement("PlayerScores");
+            writer.WriteStartElement("PlayerScore");
 
             foreach (int hs in GameForm.scoreList)
             {
