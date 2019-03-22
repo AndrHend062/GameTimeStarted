@@ -35,16 +35,16 @@
             // highScoreLabel
             // 
             this.highScoreLabel.BackColor = System.Drawing.Color.SlateGray;
-            this.highScoreLabel.Location = new System.Drawing.Point(274, 137);
+            this.highScoreLabel.Location = new System.Drawing.Point(450, 257);
             this.highScoreLabel.Name = "highScoreLabel";
-            this.highScoreLabel.Size = new System.Drawing.Size(317, 335);
+            this.highScoreLabel.Size = new System.Drawing.Size(300, 335);
             this.highScoreLabel.TabIndex = 0;
             this.highScoreLabel.Text = "High Scores ";
             this.highScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // menuScreenButton
             // 
-            this.menuScreenButton.Location = new System.Drawing.Point(351, 490);
+            this.menuScreenButton.Location = new System.Drawing.Point(511, 616);
             this.menuScreenButton.Name = "menuScreenButton";
             this.menuScreenButton.Size = new System.Drawing.Size(177, 46);
             this.menuScreenButton.TabIndex = 1;

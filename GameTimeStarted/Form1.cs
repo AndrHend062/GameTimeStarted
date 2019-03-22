@@ -45,10 +45,9 @@ namespace GameTimeStarted
             }
             catch { }
             
-
-            // this.TopMost = true;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            // this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             Form f = FindForm();
             MenuScreen ns =new MenuScreen();
             ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
@@ -63,8 +62,7 @@ namespace GameTimeStarted
             f.Controls.Remove(current);
             UserControl ns = null;
 
-            ///If any screens, (UserControls), are added to the program they need to
-            ///be added within this switch block as well.
+            //switches screen
             switch (next)
             {
                 case "MenuScreen":
@@ -87,7 +85,7 @@ namespace GameTimeStarted
                     break;
             }
 
-            //centres the control on the screen
+            //centres on the screen
             ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
 
             f.Controls.Add(ns);
